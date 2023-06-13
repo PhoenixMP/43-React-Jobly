@@ -53,7 +53,8 @@ const Jobs = ({ companyJobs }) => {
     return (
         <div>
             jobs
-            <SearchForm searchFunction={searchJobs} />
+            {!companyJobs ? <SearchForm searchFunction={searchJobs} /> : null}
+
             {jobs.map(job => (
                 <JobCard key={job.id} id={job.id} title={job.title} salary={job.salary} equity={job.equity} companyName={job.companyName} />
             ))}
